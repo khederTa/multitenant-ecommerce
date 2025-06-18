@@ -2,15 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { GategoriesGetManyOutput } from '@/modules/categories/types'
 import { ListFilterIcon } from 'lucide-react'
 
-import { CategoryDropdown } from './category-dropdown'
 import { CategoriesSidebar } from './categories-sidebar'
-import { CustomCategory } from '../types'
+import { CategoryDropdown } from './category-dropdown'
 import { cn } from '@/lib/utils'
 
 interface Props {
-  data: CustomCategory[]
+  data: GategoriesGetManyOutput
 }
 
 export const Categories = ({ data }: Props) => {
@@ -58,7 +58,7 @@ export const Categories = ({ data }: Props) => {
   return (
     <div className="relative w-full flex items-center justify-between gap-4">
       {/* Categories sidebar */}
-      <CategoriesSidebar open={isSidebarOpen} onOpenChange={setIsSidebarOpen} data={data} />
+      <CategoriesSidebar open={isSidebarOpen} onOpenChange={setIsSidebarOpen} />
 
       {/* Hidden div to measure all items */}
       <div
